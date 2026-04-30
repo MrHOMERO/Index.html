@@ -3,177 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vale Joyas | Everyday Jewelry</title>
+    <title>Vale Joyas | Catálogo Oficial</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap');
+
+        :root {
+            --dorado: #b08d57;
+            --negro: #1a1a1a;
+            --crema: #fdfbf7;
+            --gris-suave: #888;
+        }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #fdfbf7; 
-            color: #2c2c2c; 
+            background-color: var(--crema); 
+            color: var(--negro); 
             line-height: 1.6;
         }
 
-        /* Estética inspirada en la imagen */
+        /* Header & Logo */
         header { 
             background: #fff;
-            padding: 60px 20px; 
+            padding: 40px 20px; 
             text-align: center;
-            border-bottom: 1px solid #e5d5c5;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--dorado);
+            margin-bottom: 15px;
         }
         
         .brand-name { 
             font-family: 'Cinzel', serif;
-            font-size: 3rem; 
-            letter-spacing: 8px; 
-            color: #b08d57;
+            font-size: 2.5rem; 
+            letter-spacing: 5px; 
+            color: var(--dorado);
             text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        
-        .sub-brand {
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 20px;
-            display: block;
         }
 
-        .hero-text {
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #444;
+        .nav-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gris-suave);
+            margin-top: 5px;
+        }
+
+        /* Banner Inspiracional */
+        .hero-banner {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+
+        .hero-banner h2 {
+            font-weight: 200;
             font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.4rem;
         }
 
-        .tagline {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 10px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 20px;
-        }
-
+        /* Grid de Productos */
         .container { 
-            max-width: 1100px; 
-            margin: 50px auto; 
+            max-width: 1200px; 
+            margin: 0 auto 50px; 
             padding: 0 20px; 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 40px; 
+            gap: 30px; 
         }
         
         .card { 
             background: #fff; 
-            overflow: hidden; 
-            transition: all 0.4s ease;
             border: 1px solid #f2ece4;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(176,141,87,0.1); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         
         .card img { 
             width: 100%; 
-            height: 350px; 
+            height: 400px; 
             object-fit: cover; 
-            filter: sepia(10%);
         }
         
-        .card-content { padding: 30px; text-align: center; }
+        .card-content { padding: 20px; text-align: center; }
         .card-content h3 { 
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem; 
+            font-size: 1.1rem; 
             margin-bottom: 10px; 
-            color: #1a1a1a; 
+            letter-spacing: 1px;
         }
-        
-        .price-tag { 
-            font-size: 1.2rem; 
-            color: #b08d57; 
-            font-weight: 600; 
-            display: block;
-            margin-bottom: 20px;
+
+        .short-desc {
+            font-size: 0.85rem;
+            color: var(--gris-suave);
+            margin-bottom: 15px;
+            height: 40px;
+            overflow: hidden;
         }
-        
+
+        /* Acordeón / Detalles ocultos */
+        .full-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            font-size: 0.8rem;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 0 15px;
+        }
+
+        .card.active .full-details {
+            max-height: 500px;
+            padding: 20px 15px;
+            border-top: 1px solid #eee;
+        }
+
         .btn-wsap { 
             display: block; 
-            background-color: #b08d57; 
+            background-color: var(--dorado); 
             color: white; 
-            padding: 15px; 
+            padding: 12px; 
             text-decoration: none; 
             font-weight: 600;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: background 0.3s;
+            margin-top: 15px;
         }
-        .btn-wsap:hover { background-color: #1a1a1a; }
-        
+
         footer { 
             text-align: center; 
-            padding: 80px 20px; 
-            color: #a0a0a0;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            padding: 60px 20px; 
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .brand-name { font-size: 1.8rem; }
+            .card img { height: 300px; }
         }
     </style>
 </head>
 <body>
 
 <header>
+    <div class="logo-container">
+        <!-- Usando la foto de la copa como logo -->
+        <img src="https://i.ibb.co/8DvPt8CM/Screenshot-20260430-080906.jpg" alt="Logo Vale Joyas">
+    </div>
     <div class="brand-name">Vale Joyas</div>
-    <span class="sub-brand">Everyday Jewelry</span>
-    
-    <p class="hero-text">
-        "Joyas pensadas para vos: fuertes, versátiles y con brillo propio ✨"
-    </p>
-    
-    <div class="tagline">A prueba de agua, vida y planes</div>
+    <div class="nav-tagline">Everyday Jewelry</div>
 </header>
 
+<div class="hero-banner">
+    <h2>"Joyas pensadas para vos: fuertes, versátiles y con brillo propio ✨"</h2>
+    <p style="margin-top: 15px; font-size: 0.8rem; letter-spacing: 2px;">A PRUEBA DE AGUA, VIDA Y PLANES</p>
+</div>
+
 <div class="container">
-    <!-- Producto 1 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1611085510594-7bc63866898d?q=80&w=600" alt="Anillo Dorado">
+
+    <!-- Producto 1: Aros Fiorella -->
+    <div class="card" onclick="this.classList.toggle('active')">
+        <img src="https://i.ibb.co/NgxT2qc9/Fiorella.jpg" alt="Aros Fiorella">
         <div class="card-content">
-            <h3>Anillo Classic Gold</h3>
-            <span class="price-tag">$1.950</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Anillo%20Classic%20Gold" class="btn-wsap" target="_blank">Consultar</a>
+            <h3>Aros Fiorella</h3>
+            <p class="short-desc">Celebración del diseño floral con un enfoque moderno y artístico.</p>
+            <div class="full-details">
+                <p>Su estructura presenta una flor abierta de contorno irregular, en acabado dorado texturizado. Fabricados en acero quirúrgico hipoalergénico con baño de oro, son livianos y resistentes al agua.<br><br>
+                <strong>Material:</strong> Acero Quirúrgico<br>
+                <strong>Acabado:</strong> Oro 18k<br>
+                <strong>Tamaño:</strong> 31x29mm</p>
+            </div>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesan%20los%20Aros%20Fiorella" class="btn-wsap" target="_blank">Consultar por WhatsApp</a>
         </div>
     </div>
 
-    <!-- Producto 2 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1598560945807-1cfda9638e49?q=80&w=600" alt="Cadenita">
+    <!-- Producto 2: Anillo Chicago -->
+    <div class="card" onclick="this.classList.toggle('active')">
+        <img src="https://i.ibb.co/qYLxyfwC/Chicago.jpg" alt="Anillo Chicago">
         <div class="card-content">
-            <h3>Cadenita Minimal</h3>
-            <span class="price-tag">$2.400</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20la%20Cadenita%20Minimal" class="btn-wsap" target="_blank">Consultar</a>
+            <h3>Anillo Chicago</h3>
+            <p class="short-desc">Diseño cómodo, moderno y con mucha presencia.</p>
+            <div class="full-details">
+                <p>Si Chicago es tu estilo, no lo dejes para después. Disponible en dorado y plateado. Hecho íntegramente en acero quirúrgico de alta resistencia.<br><br>
+                <strong>Material:</strong> Acero Quirúrgico<br>
+                <strong>Colores:</strong> Dorado / Plateado</p>
+            </div>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Anillo%20Chicago" class="btn-wsap" target="_blank">Consultar por WhatsApp</a>
         </div>
     </div>
 
-    <!-- Producto 3 -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600" alt="Reloj">
+    <!-- Producto 3: Esclava Magda -->
+    <div class="card" onclick="this.classList.toggle('active')">
+        <img src="https://i.ibb.co/zWQ0wzL4/Magda.jpg" alt="Esclava Magda">
         <div class="card-content">
-            <h3>Reloj Signature</h3>
-            <span class="price-tag">$4.800</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Reloj%20Signature" class="btn-wsap" target="_blank">Consultar</a>
+            <h3>Esclava Magda</h3>
+            <p class="short-desc">Joya de diseño clásico y elegante, ideal para realzar cualquier look.</p>
+            <div class="full-details">
+                <p>Fabricada en acero quirúrgico con un impecable baño de oro, esta esclava rígida se destaca por su minimalismo y sofisticación. Su acabado pulido aporta un brillo dorado que combina con todo.<br><br>
+                <strong>Material:</strong> Acero Quirúrgico<br>
+                <strong>Acabado:</strong> Oro 18k<br>
+                <strong>Ancho:</strong> 4 mm</p>
+            </div>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20la%20Esclava%20Magda" class="btn-wsap" target="_blank">Consultar por WhatsApp</a>
         </div>
     </div>
+
+    <!-- Producto 4: Pulsera África Silver -->
+    <div class="card" onclick="this.classList.toggle('active')">
+        <img src="https://i.ibb.co/cK92Gxg4/Africa.jpg" alt="Pulsera África Silver">
+        <div class="card-content">
+            <h3>Pulsera África Silver</h3>
+            <p class="short-desc">Sofisticación en acero quirúrgico color plata. Diseño minimalista.</p>
+            <div class="full-details">
+                <p>Accesorio atemporal, ideal tanto para el día a día como para ocasiones especiales. Diseño cerrado que garantiza un ajuste seguro y un look más sólido. Hipoalergénica y resistente.<br><br>
+                <strong>Material:</strong> Acero Quirúrgico<br>
+                <strong>Tamaño:</strong> 17cm + 5cm extensión</p>
+            </div>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20la%20Pulsera%20Africa%20Silver" class="btn-wsap" target="_blank">Consultar por WhatsApp</a>
+        </div>
+    </div>
+
 </div>
 
 <footer>
-    <p>&copy; 2026 VALE JOYAS | Envíos a todo el país</p>
+    <p>VALE JOYAS &copy; 2026 | PAYSANDÚ, URUGUAY</p>
+    <p style="margin-top: 10px; opacity: 0.5;">Diseño Profesional para Emprendedores</p>
 </footer>
 
 </body>
