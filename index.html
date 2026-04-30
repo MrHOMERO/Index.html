@@ -3,134 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vale Joyas | Catálogo Online</title>
+    <title>Vale Joyas | Everyday Jewelry</title>
     <style>
-        * { box-sizing: border-box; }
-        body { 
-            font-family: 'Georgia', serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #fcfaf7; 
-            color: #333; 
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #fdfbf7; 
+            color: #2c2c2c; 
+            line-height: 1.6;
+        }
+
+        /* Estética inspirada en la imagen */
         header { 
             background: #fff;
-            color: #1a1a1a; 
-            padding: 50px 20px; 
+            padding: 60px 20px; 
             text-align: center;
-            border-bottom: 2px solid #e5d5c5;
+            border-bottom: 1px solid #e5d5c5;
         }
-        header h1 { margin: 0; font-size: 2.8rem; font-weight: normal; letter-spacing: 3px; color: #b08d57; }
-        header p { color: #888; font-size: 1rem; margin-top: 10px; font-style: italic; }
         
+        .brand-name { 
+            font-family: 'Cinzel', serif;
+            font-size: 3rem; 
+            letter-spacing: 8px; 
+            color: #b08d57;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .sub-brand {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #444;
+            font-style: italic;
+        }
+
+        .tagline {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 10px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
         .container { 
-            max-width: 1200px; 
-            margin: 40px auto; 
+            max-width: 1100px; 
+            margin: 50px auto; 
             padding: 0 20px; 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            gap: 40px; 
         }
         
         .card { 
             background: #fff; 
-            border-radius: 0; 
             overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease;
-            border: 1px solid #f0e6db;
+            transition: all 0.4s ease;
+            border: 1px solid #f2ece4;
         }
-        .card:hover { transform: translateY(-5px); }
+        
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(176,141,87,0.1); }
         
         .card img { 
             width: 100%; 
-            height: 320px; 
+            height: 350px; 
             object-fit: cover; 
+            filter: sepia(10%);
         }
         
-        .card-content { padding: 25px; text-align: center; }
-        .card-content h3 { margin: 0 0 10px 0; font-size: 1.5rem; color: #1a1a1a; font-weight: normal; }
-        .card-content p { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; }
+        .card-content { padding: 30px; text-align: center; }
+        .card-content h3 { 
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem; 
+            margin-bottom: 10px; 
+            color: #1a1a1a; 
+        }
         
         .price-tag { 
-            font-size: 1.4rem; 
+            font-size: 1.2rem; 
             color: #b08d57; 
-            font-weight: bold; 
+            font-weight: 600; 
             display: block;
             margin-bottom: 20px;
         }
         
         .btn-wsap { 
             display: block; 
-            background-color: #1a1a1a; 
+            background-color: #b08d57; 
             color: white; 
             padding: 15px; 
             text-decoration: none; 
-            font-weight: bold;
+            font-weight: 600;
             text-align: center;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             transition: background 0.3s;
         }
-        .btn-wsap:hover { background-color: #b08d57; }
+        .btn-wsap:hover { background-color: #1a1a1a; }
         
         footer { 
             text-align: center; 
-            padding: 60px 20px; 
-            background: #f7f3ef;
+            padding: 80px 20px; 
             color: #a0a0a0;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>VALE JOYAS</h1>
-    <p>Brillo y elegancia en cada pieza</p>
+    <div class="brand-name">Vale Joyas</div>
+    <span class="sub-brand">Everyday Jewelry</span>
+    
+    <p class="hero-text">
+        "Joyas pensadas para vos: fuertes, versátiles y con brillo propio ✨"
+    </p>
+    
+    <div class="tagline">A prueba de agua, vida y planes</div>
 </header>
 
 <div class="container">
     <!-- Producto 1 -->
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600" alt="Anillo de Plata">
+        <img src="https://images.unsplash.com/photo-1611085510594-7bc63866898d?q=80&w=600" alt="Anillo Dorado">
         <div class="card-content">
-            <h3>Anillo Pureza</h3>
-            <p>Pieza de plata fina con detalles artesanales. Ideal para un regalo inolvidable.</p>
-            <span class="price-tag">$1.850</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Anillo%20Pureza%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+            <h3>Anillo Classic Gold</h3>
+            <span class="price-tag">$1.950</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Anillo%20Classic%20Gold" class="btn-wsap" target="_blank">Consultar</a>
         </div>
     </div>
 
     <!-- Producto 2 -->
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600" alt="Collar Elegante">
+        <img src="https://images.unsplash.com/photo-1598560945807-1cfda9638e49?q=80&w=600" alt="Cadenita">
         <div class="card-content">
-            <h3>Collar Destello</h3>
-            <p>Diseño exclusivo bañado en oro con cristales seleccionados. Elegancia pura.</p>
-            <span class="price-tag">$3.200</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Collar%20Destello%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+            <h3>Cadenita Minimal</h3>
+            <span class="price-tag">$2.400</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20la%20Cadenita%20Minimal" class="btn-wsap" target="_blank">Consultar</a>
         </div>
     </div>
 
     <!-- Producto 3 -->
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600" alt="Reloj Premium">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600" alt="Reloj">
         <div class="card-content">
-            <h3>Reloj Gala</h3>
-            <p>Sofisticación y precisión en tu muñeca. Un clásico que nunca pasa de moda.</p>
-            <span class="price-tag">$5.900</span>
-            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Reloj%20Gala%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+            <h3>Reloj Signature</h3>
+            <span class="price-tag">$4.800</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Reloj%20Signature" class="btn-wsap" target="_blank">Consultar</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 VALE JOYAS | Envíos a todo el país desde Paysandú</p>
+    <p>&copy; 2026 VALE JOYAS | Envíos a todo el país</p>
 </footer>
 
 </body>
-          </html>
+</html>
