@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale Joyas | Catálogo Online</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #fcfaf7; 
+            color: #333; 
+        }
+        
+        header { 
+            background: #fff;
+            color: #1a1a1a; 
+            padding: 50px 20px; 
+            text-align: center;
+            border-bottom: 2px solid #e5d5c5;
+        }
+        header h1 { margin: 0; font-size: 2.8rem; font-weight: normal; letter-spacing: 3px; color: #b08d57; }
+        header p { color: #888; font-size: 1rem; margin-top: 10px; font-style: italic; }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        
+        .card { 
+            background: #fff; 
+            border-radius: 0; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease;
+            border: 1px solid #f0e6db;
+        }
+        .card:hover { transform: translateY(-5px); }
+        
+        .card img { 
+            width: 100%; 
+            height: 320px; 
+            object-fit: cover; 
+        }
+        
+        .card-content { padding: 25px; text-align: center; }
+        .card-content h3 { margin: 0 0 10px 0; font-size: 1.5rem; color: #1a1a1a; font-weight: normal; }
+        .card-content p { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; }
+        
+        .price-tag { 
+            font-size: 1.4rem; 
+            color: #b08d57; 
+            font-weight: bold; 
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .btn-wsap { 
+            display: block; 
+            background-color: #1a1a1a; 
+            color: white; 
+            padding: 15px; 
+            text-decoration: none; 
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+        .btn-wsap:hover { background-color: #b08d57; }
+        
+        footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: #f7f3ef;
+            color: #a0a0a0;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>VALE JOYAS</h1>
+    <p>Brillo y elegancia en cada pieza</p>
+</header>
+
+<div class="container">
+    <!-- Producto 1 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600" alt="Anillo de Plata">
+        <div class="card-content">
+            <h3>Anillo Pureza</h3>
+            <p>Pieza de plata fina con detalles artesanales. Ideal para un regalo inolvidable.</p>
+            <span class="price-tag">$1.850</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Anillo%20Pureza%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+        </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600" alt="Collar Elegante">
+        <div class="card-content">
+            <h3>Collar Destello</h3>
+            <p>Diseño exclusivo bañado en oro con cristales seleccionados. Elegancia pura.</p>
+            <span class="price-tag">$3.200</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Collar%20Destello%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+        </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600" alt="Reloj Premium">
+        <div class="card-content">
+            <h3>Reloj Gala</h3>
+            <p>Sofisticación y precisión en tu muñeca. Un clásico que nunca pasa de moda.</p>
+            <span class="price-tag">$5.900</span>
+            <a href="https://wa.me/59896438057?text=Hola!%20Me%20interesa%20el%20Reloj%20Gala%20de%20Vale%20Joyas" class="btn-wsap" target="_blank">Consultar Disponibilidad</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 VALE JOYAS | Envíos a todo el país desde Paysandú</p>
+</footer>
+
+</body>
+          </html>
